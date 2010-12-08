@@ -46,7 +46,6 @@ super easy.
      "lib/fleximage/operator/trim.rb",
      "lib/fleximage/operator/unsharp_mask.rb",
      "lib/fleximage/rmagick_image_patch.rb",
-     "lib/fleximage/string_patch.rb",
      "lib/fleximage/view.rb",
      "tasks/fleximage_tasks.rake",
      "test/fixtures/100x1.jpg",
