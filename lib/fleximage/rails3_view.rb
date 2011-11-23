@@ -1,11 +1,6 @@
-module ActionView
-  module TemplateHandlers
-    class Rails3View < TemplateHandler
-      include Compilable
-      class TemplateDidNotReturnImage < RuntimeError #:nodoc:
-      end
-
-      def compile(template)
+module Fleximage
+  class View 
+      def self.call(template)
         <<-CODE
         @template_format = :flexi
         controller.response.content_type ||= Mime::JPG    
@@ -23,9 +18,6 @@ module ActionView
           e
         end
         CODE
-      ensure
-        GC.start
       end
     end
-  end
 end

@@ -9,15 +9,16 @@ module Fleximage
       mime    = Mime::Type.lookup_by_extension(format.to_s).to_s
       image   = model.output_image(:format => format)
       data    = Base64.encode64(image)
-      
+
       options = { :alt => model.class.to_s }.merge(options)
-      
+
       result = image_tag("data:#{mime};base64,#{data}", options)
-      result.gsub(%r{src=".*/images/data:}, 'src="data:')
-      
+      result.gsub(%r{src=".*/data:}, 'src="data:')
+
     rescue Fleximage::Model::MasterImageNotFound => e
       nil
     end
+
     
     # Creates a link that opens an image for editing in Aviary.
     #
