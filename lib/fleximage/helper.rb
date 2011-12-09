@@ -12,7 +12,7 @@ module Fleximage
 
       options = { :alt => model.class.to_s }.merge(options)
 
-      result = image_tag("data:#{mime};base64,#{data}", options)
+      result = image_tag("/data:#{mime};base64,#{data}", options)
       result.gsub(%r{src=".*/data:}, 'src="data:')
 
     rescue Fleximage::Model::MasterImageNotFound => e
